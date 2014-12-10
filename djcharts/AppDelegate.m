@@ -17,14 +17,11 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     _statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
 
-
-    _statusItem.title = @"DJCharts";
-    _statusItem.image = [NSImage imageNamed:@"status-item2"];
-    _statusItem.highlightMode = YES;
+    NSImage *icon = [NSImage imageNamed:@"headphones"];
+    [icon setTemplate:YES];
     
-    // The highlighted image, use a white version of the normal image
-    // _statusItem.alternateImage = [NSImage imageNamed:@"feedbin-logo-alt"];
-
+    [_statusItem setImage:icon];
+    _statusItem.highlightMode = YES;
 
     NSMenu *menu = [[NSMenu alloc] init];
     [menu addItemWithTitle:@"Open DJ Charts" action:@selector(openDJCharts:) keyEquivalent:@""];

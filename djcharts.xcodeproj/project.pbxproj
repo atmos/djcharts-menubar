@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1FA1A9961A3824FF00FB2988 /* headphones.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FA1A9951A3824FF00FB2988 /* headphones.png */; };
 		74C9ADCC1A37F37E00C34637 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C9ADCB1A37F37E00C34637 /* AppDelegate.m */; };
 		74C9ADCE1A37F37E00C34637 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C9ADCD1A37F37E00C34637 /* main.m */; };
 		74C9ADD01A37F37E00C34637 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74C9ADCF1A37F37E00C34637 /* Images.xcassets */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1FA1A9951A3824FF00FB2988 /* headphones.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = headphones.png; sourceTree = "<group>"; };
 		74C9ADC51A37F37E00C34637 /* djcharts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = djcharts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74C9ADC91A37F37E00C34637 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74C9ADCA1A37F37E00C34637 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				74C9ADCA1A37F37E00C34637 /* AppDelegate.h */,
+				1FA1A9951A3824FF00FB2988 /* headphones.png */,
 				74C9ADCB1A37F37E00C34637 /* AppDelegate.m */,
 				74C9ADE81A37F41D00C34637 /* status-item2.png */,
 				74C9ADCF1A37F37E00C34637 /* Images.xcassets */,
@@ -196,6 +199,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FA1A9961A3824FF00FB2988 /* headphones.png in Resources */,
 				74C9ADD01A37F37E00C34637 /* Images.xcassets in Resources */,
 				74C9ADE91A37F41D00C34637 /* status-item2.png in Resources */,
 				74C9ADD31A37F37E00C34637 /* MainMenu.xib in Resources */,
@@ -404,6 +408,7 @@
 				74C9ADE41A37F37E00C34637 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		74C9ADE51A37F37E00C34637 /* Build configuration list for PBXNativeTarget "djchartsTests" */ = {
 			isa = XCConfigurationList;
@@ -412,6 +417,7 @@
 				74C9ADE71A37F37E00C34637 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
