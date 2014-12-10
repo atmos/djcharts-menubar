@@ -37,6 +37,7 @@
 		74C9ADDD1A37F37E00C34637 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74C9ADDE1A37F37E00C34637 /* djchartsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = djchartsTests.m; sourceTree = "<group>"; };
 		74C9ADE81A37F41D00C34637 /* status-item2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "status-item2.png"; sourceTree = "<group>"; };
+		74C9ADEA1A3812E300C34637 /* traktor-charts */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "traktor-charts"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +61,7 @@
 		74C9ADBC1A37F37E00C34637 = {
 			isa = PBXGroup;
 			children = (
+				74C9ADEA1A3812E300C34637 /* traktor-charts */,
 				74C9ADC71A37F37E00C34637 /* djcharts */,
 				74C9ADDB1A37F37E00C34637 /* djchartsTests */,
 				74C9ADC61A37F37E00C34637 /* Products */,
