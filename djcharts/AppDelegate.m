@@ -10,13 +10,36 @@
 
 @interface AppDelegate ()
 
-@property (weak) IBOutlet NSWindow *window;
 @end
 
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    // Insert code here to initialize your application
+    _statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
+
+
+    _statusItem.title = @"DJCharts";
+    _statusItem.image = [NSImage imageNamed:@"status-item2"];
+    _statusItem.highlightMode = YES;
+    
+    // The highlighted image, use a white version of the normal image
+    // _statusItem.alternateImage = [NSImage imageNamed:@"feedbin-logo-alt"];
+
+
+    NSMenu *menu = [[NSMenu alloc] init];
+    [menu addItemWithTitle:@"Open DJ Charts" action:@selector(openDJCharts:) keyEquivalent:@""];
+    [menu addItemWithTitle:@"Update" action:@selector(refreshDJCharts:) keyEquivalent:@""];
+    [menu addItem:[NSMenuItem separatorItem]]; // A thin grey line
+    [menu addItemWithTitle:@"Quit" action:@selector(terminate:) keyEquivalent:@""];
+    _statusItem.menu = menu;
+}
+
+- (void)openDJCharts:(id)sender {
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://djcharts.io/"]];
+}
+
+- (void)refreshDJCharts:(id)sender {
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://djcharts.io/"]];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {

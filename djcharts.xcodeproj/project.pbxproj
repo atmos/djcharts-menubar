@@ -12,6 +12,7 @@
 		74C9ADD01A37F37E00C34637 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74C9ADCF1A37F37E00C34637 /* Images.xcassets */; };
 		74C9ADD31A37F37E00C34637 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74C9ADD11A37F37E00C34637 /* MainMenu.xib */; };
 		74C9ADDF1A37F37E00C34637 /* djchartsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C9ADDE1A37F37E00C34637 /* djchartsTests.m */; };
+		74C9ADE91A37F41D00C34637 /* status-item2.png in Resources */ = {isa = PBXBuildFile; fileRef = 74C9ADE81A37F41D00C34637 /* status-item2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,7 @@
 		74C9ADD81A37F37E00C34637 /* djchartsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = djchartsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		74C9ADDD1A37F37E00C34637 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74C9ADDE1A37F37E00C34637 /* djchartsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = djchartsTests.m; sourceTree = "<group>"; };
+		74C9ADE81A37F41D00C34637 /* status-item2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "status-item2.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 			children = (
 				74C9ADCA1A37F37E00C34637 /* AppDelegate.h */,
 				74C9ADCB1A37F37E00C34637 /* AppDelegate.m */,
+				74C9ADE81A37F41D00C34637 /* status-item2.png */,
 				74C9ADCF1A37F37E00C34637 /* Images.xcassets */,
 				74C9ADD11A37F37E00C34637 /* MainMenu.xib */,
 				74C9ADC81A37F37E00C34637 /* Supporting Files */,
@@ -192,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				74C9ADD01A37F37E00C34637 /* Images.xcassets in Resources */,
+				74C9ADE91A37F41D00C34637 /* status-item2.png in Resources */,
 				74C9ADD31A37F37E00C34637 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
