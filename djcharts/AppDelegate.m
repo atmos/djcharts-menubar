@@ -39,7 +39,13 @@
 }
 
 - (void)refreshDJCharts:(id)sender {
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://djcharts.io/"]];
+    NSTask *task;
+    NSArray *arguments = [NSArray arrayWithObject: @"hi atmos"];
+
+    task = [[NSTask alloc]init];
+    [task setLaunchPath: @"/Users/atmos/traktor-charts/bin/traktor-charts"];
+    [task setArguments: arguments];
+    [task launch];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
