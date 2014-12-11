@@ -14,6 +14,7 @@
 		74C9ADD01A37F37E00C34637 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74C9ADCF1A37F37E00C34637 /* Images.xcassets */; };
 		74C9ADD31A37F37E00C34637 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74C9ADD11A37F37E00C34637 /* MainMenu.xib */; };
 		74C9ADDF1A37F37E00C34637 /* djchartsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C9ADDE1A37F37E00C34637 /* djchartsTests.m */; };
+		74E5E3581A3A27D900DCD2A3 /* traktor-charts in Resources */ = {isa = PBXBuildFile; fileRef = 74E5E3571A3A276700DCD2A3 /* traktor-charts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +40,7 @@
 		74C9ADD81A37F37E00C34637 /* djchartsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = djchartsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		74C9ADDD1A37F37E00C34637 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74C9ADDE1A37F37E00C34637 /* djchartsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = djchartsTests.m; sourceTree = "<group>"; };
-		74C9ADEA1A3812E300C34637 /* traktor-charts */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "traktor-charts"; sourceTree = "<group>"; };
+		74E5E3571A3A276700DCD2A3 /* traktor-charts */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = "traktor-charts"; path = "djcharts/traktor-charts"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +64,7 @@
 		74C9ADBC1A37F37E00C34637 = {
 			isa = PBXGroup;
 			children = (
-				74C9ADEA1A3812E300C34637 /* traktor-charts */,
+				74E5E3571A3A276700DCD2A3 /* traktor-charts */,
 				74C9ADC71A37F37E00C34637 /* djcharts */,
 				74C9ADDB1A37F37E00C34637 /* djchartsTests */,
 				74C9ADC61A37F37E00C34637 /* Products */,
@@ -199,6 +200,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74E5E3581A3A27D900DCD2A3 /* traktor-charts in Resources */,
 				1FA1A99C1A3827B100FB2988 /* headphones.png in Resources */,
 				1FA1A9A21A38293400FB2988 /* headphones@2x.png in Resources */,
 				74C9ADD01A37F37E00C34637 /* Images.xcassets in Resources */,

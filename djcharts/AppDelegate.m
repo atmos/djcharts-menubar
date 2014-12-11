@@ -39,8 +39,10 @@
     NSTask *task;
     NSArray *arguments = [NSArray arrayWithObject: @"hi atmos"];
 
+    NSString* filePath = [[NSBundle mainBundle] pathForResource:@"traktor-charts" ofType:nil];
+    
     task = [[NSTask alloc]init];
-    [task setLaunchPath: @"/Users/atmos/traktor-charts/bin/traktor-charts"];
+    [task setLaunchPath: filePath];
     [task setArguments: arguments];
     [task launch];
 }
