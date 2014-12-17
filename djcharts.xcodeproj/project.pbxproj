@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1FA1A99C1A3827B100FB2988 /* headphones.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FA1A99B1A3827B100FB2988 /* headphones.png */; };
 		1FA1A9A21A38293400FB2988 /* headphones@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FA1A9A11A38293400FB2988 /* headphones@2x.png */; };
+		7484A6E61A412B7300A863CD /* headphones@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7484A6E51A412B7300A863CD /* headphones@2x.png */; };
+		7484A6E81A412B7E00A863CD /* headphones.png in Resources */ = {isa = PBXBuildFile; fileRef = 7484A6E71A412B7E00A863CD /* headphones.png */; };
 		74C9ADCC1A37F37E00C34637 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C9ADCB1A37F37E00C34637 /* AppDelegate.m */; };
 		74C9ADCE1A37F37E00C34637 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C9ADCD1A37F37E00C34637 /* main.m */; };
 		74C9ADD01A37F37E00C34637 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74C9ADCF1A37F37E00C34637 /* Images.xcassets */; };
@@ -30,6 +32,8 @@
 /* Begin PBXFileReference section */
 		1FA1A99B1A3827B100FB2988 /* headphones.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = headphones.png; sourceTree = "<group>"; };
 		1FA1A9A11A38293400FB2988 /* headphones@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "headphones@2x.png"; sourceTree = "<group>"; };
+		7484A6E51A412B7300A863CD /* headphones@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "headphones@2x.png"; sourceTree = "<group>"; };
+		7484A6E71A412B7E00A863CD /* headphones.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = headphones.png; sourceTree = "<group>"; };
 		74C9ADC51A37F37E00C34637 /* djcharts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = djcharts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74C9ADC91A37F37E00C34637 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74C9ADCA1A37F37E00C34637 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -83,6 +87,8 @@
 		74C9ADC71A37F37E00C34637 /* djcharts */ = {
 			isa = PBXGroup;
 			children = (
+				7484A6E71A412B7E00A863CD /* headphones.png */,
+				7484A6E51A412B7300A863CD /* headphones@2x.png */,
 				74C9ADCA1A37F37E00C34637 /* AppDelegate.h */,
 				74C9ADCB1A37F37E00C34637 /* AppDelegate.m */,
 				1FA1A99B1A3827B100FB2988 /* headphones.png */,
@@ -200,7 +206,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7484A6E81A412B7E00A863CD /* headphones.png in Resources */,
 				74E5E3581A3A27D900DCD2A3 /* traktor-charts in Resources */,
+				7484A6E61A412B7300A863CD /* headphones@2x.png in Resources */,
 				1FA1A99C1A3827B100FB2988 /* headphones.png in Resources */,
 				1FA1A9A21A38293400FB2988 /* headphones@2x.png in Resources */,
 				74C9ADD01A37F37E00C34637 /* Images.xcassets in Resources */,
