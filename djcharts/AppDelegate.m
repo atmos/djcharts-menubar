@@ -41,7 +41,7 @@
     NSTask *task;
     NSArray *arguments = [NSArray arrayWithObject: @"hi atmos"];
 
-    NSString* filePath = [[NSBundle mainBundle] pathForResource:@"traktor-charts" ofType:nil];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"traktor-charts" ofType:nil];
     
     task = [[NSTask alloc]init];
     [task setLaunchPath: filePath];
@@ -55,8 +55,17 @@
 
 - (void)handleURLEvent:(NSAppleEventDescriptor*)event withReplyEvent:(NSAppleEventDescriptor*)replyEvent
 {
-    NSString* url = [[event paramDescriptorForKeyword:keyDirectObject] stringValue];
-    NSLog(@"%@", url);
+    NSString *url = [[event paramDescriptorForKeyword:keyDirectObject] stringValue];
+    NSString *destinationURL = [[[NSProcessInfo processInfo]environment]objectForKey:@"HOME"];
+    NSString *token = [[url componentsSeparatedByString:@"/"] objectAtIndex:2];
+
+    NSError *writeError = nil;
+
+    destinationURL = [destinationURL stringByAppendingString:@"/.traktor-charts"];
+    NSLog(@"%@ - %@", destinationURL, token);
+    [token writeToFile:destinationURL atomically:YES encoding:NSUTF8StringEncoding error:&writeError];
+
+    NSLog(@"%@", writeError.localizedFailureReason);
 }
 
 @end
