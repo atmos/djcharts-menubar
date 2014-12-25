@@ -47,6 +47,17 @@
     [task setLaunchPath: filePath];
     [task setArguments: arguments];
     [task launch];
+    [task waitUntilExit];
+
+    int exitStatus = [task terminationStatus];
+    if(exitStatus == 0) {
+        NSLog(@"Exited successful. :+1:.");
+    } else if(exitStatus == 2) {
+      NSLog(@"Probably failed to post to djcharts.io");
+    } else {
+      NSLog(@"Exited with %d", [task terminationStatus]);
+    }
+
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
