@@ -34,14 +34,23 @@
 
     NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval: 30.0
                   target: self
-                  selector:@selector(onTick:)
+                  selector:@selector(onPulse:)
                   userInfo: nil repeats:YES];
     return;
     timer = nil; // lol
 }
 
-- (void)onTick:(NSTimer *)timer {
-  NSLog(@"Periodic pew pew pew.");
+- (void)onPulse:(NSTimer *)timer {
+  NSLog(@"Periodic Pulse.");
+  NSTask *task;
+  NSArray *arguments = [NSArray arrayWithObject: @"hi atmos"];
+
+  NSString *filePath = [[NSBundle mainBundle] pathForResource:@"traktor-charts" ofType:nil];
+
+  task = [[NSTask alloc]init];
+  [task setLaunchPath: filePath];
+  [task setArguments: arguments];
+  [task launch];
 }
 
 - (void)openDJCharts:(id)sender {
@@ -53,7 +62,7 @@
     NSArray *arguments = [NSArray arrayWithObject: @"hi atmos"];
 
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"traktor-charts" ofType:nil];
-    
+
     task = [[NSTask alloc]init];
     [task setLaunchPath: filePath];
     [task setArguments: arguments];
@@ -68,7 +77,6 @@
     } else {
       NSLog(@"Exited with %d", [task terminationStatus]);
     }
-
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
