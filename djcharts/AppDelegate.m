@@ -31,6 +31,17 @@
     [menu addItem:[NSMenuItem separatorItem]]; // A thin grey line
     [menu addItemWithTitle:@"Quit" action:@selector(terminate:) keyEquivalent:@""];
     _statusItem.menu = menu;
+
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval: 30.0
+                  target: self
+                  selector:@selector(onTick:)
+                  userInfo: nil repeats:YES];
+    return;
+    timer = nil; // lol
+}
+
+- (void)onTick:(NSTimer *)timer {
+  NSLog(@"Periodic pew pew pew.");
 }
 
 - (void)openDJCharts:(id)sender {
