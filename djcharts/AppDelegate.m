@@ -32,7 +32,7 @@
     [menu addItemWithTitle:@"Quit" action:@selector(terminate:) keyEquivalent:@""];
     _statusItem.menu = menu;
 
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval: 30.0
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval: 60.0
                   target: self
                   selector:@selector(onPulse:)
                   userInfo: nil repeats:YES];
@@ -51,6 +51,18 @@
   [task setLaunchPath: filePath];
   [task setArguments: arguments];
   [task launch];
+  [task waitUntilExit];
+
+  int exitStatus = [task terminationStatus];
+  if(exitStatus == 0) {
+    NSLog(@"Exited successful. :+1:.");
+  } else if(exitStatus == 2) {
+    NSLog(@"Probably failed to post to djcharts.io");
+  } else if(exitStatus == 3) {
+      NSLog(@"No new traktor archive files found.");
+  } else {
+    NSLog(@"Exited with %d", [task terminationStatus]);
+  }
 }
 
 - (void)openDJCharts:(id)sender {
@@ -74,6 +86,8 @@
         NSLog(@"Exited successful. :+1:.");
     } else if(exitStatus == 2) {
       NSLog(@"Probably failed to post to djcharts.io");
+    } else if(exitStatus == 3) {
+        NSLog(@"No new traktor archive files found.");
     } else {
       NSLog(@"Exited with %d", [task terminationStatus]);
     }
