@@ -109,7 +109,9 @@
     NSLog(@"%@ - %@", destinationURL, token);
     [token writeToFile:destinationURL atomically:YES encoding:NSUTF8StringEncoding error:&writeError];
 
-    NSLog(@"%@", writeError.localizedFailureReason);
+    if(writeError.localizedFailureReason != NULL) {
+      NSLog(@"%@", writeError.localizedFailureReason);
+    }
 }
 
 @end
