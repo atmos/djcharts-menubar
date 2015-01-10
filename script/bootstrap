@@ -1,0 +1,11 @@
+#!/bin/sh -e
+
+if [ ! -f Squirrel.Mac ]; then
+  git submodule init
+fi
+
+git submodule update
+cd Squirrel.Mac
+script/bootstrap
+
+echo "Squirrel is all setup"
