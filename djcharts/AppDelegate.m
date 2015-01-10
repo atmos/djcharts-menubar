@@ -53,7 +53,7 @@
     }];
 
     // Check for updates every 4 hours.
-    [self.updater startAutomaticChecksWithInterval:60 * 60 * 4];
+    [self.updater startAutomaticChecksWithInterval:30];
 
     timer = nil; // lol
 }
