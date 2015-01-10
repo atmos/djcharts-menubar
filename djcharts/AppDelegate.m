@@ -31,6 +31,38 @@
     [menu addItem:[NSMenuItem separatorItem]]; // A thin grey line
     [menu addItemWithTitle:@"Quit" action:@selector(terminate:) keyEquivalent:@""];
     _statusItem.menu = menu;
+
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval: 60.0
+                  target: self
+                  selector:@selector(onPulse:)
+                  userInfo: nil repeats:YES];
+    return;
+    timer = nil; // lol
+}
+
+- (void)onPulse:(NSTimer *)timer {
+  NSLog(@"Periodic Pulse.");
+  NSTask *task;
+  NSArray *arguments = [NSArray arrayWithObject: @"hi atmos"];
+
+  NSString *filePath = [[NSBundle mainBundle] pathForResource:@"traktor-charts" ofType:nil];
+
+  task = [[NSTask alloc]init];
+  [task setLaunchPath: filePath];
+  [task setArguments: arguments];
+  [task launch];
+  [task waitUntilExit];
+
+  int exitStatus = [task terminationStatus];
+  if(exitStatus == 0) {
+    NSLog(@"Exited successful. :+1:.");
+  } else if(exitStatus == 2) {
+    NSLog(@"Probably failed to post to djcharts.io");
+  } else if(exitStatus == 3) {
+      NSLog(@"No new traktor archive files found.");
+  } else {
+    NSLog(@"Exited with %d", [task terminationStatus]);
+  }
 }
 
 - (void)openDJCharts:(id)sender {
@@ -42,7 +74,7 @@
     NSArray *arguments = [NSArray arrayWithObject: @"hi atmos"];
 
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"traktor-charts" ofType:nil];
-    
+
     task = [[NSTask alloc]init];
     [task setLaunchPath: filePath];
     [task setArguments: arguments];
@@ -54,10 +86,11 @@
         NSLog(@"Exited successful. :+1:.");
     } else if(exitStatus == 2) {
       NSLog(@"Probably failed to post to djcharts.io");
+    } else if(exitStatus == 3) {
+        NSLog(@"No new traktor archive files found.");
     } else {
       NSLog(@"Exited with %d", [task terminationStatus]);
     }
-
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
@@ -76,7 +109,9 @@
     NSLog(@"%@ - %@", destinationURL, token);
     [token writeToFile:destinationURL atomically:YES encoding:NSUTF8StringEncoding error:&writeError];
 
-    NSLog(@"%@", writeError.localizedFailureReason);
+    if(writeError.localizedFailureReason != NULL) {
+      NSLog(@"%@", writeError.localizedFailureReason);
+    }
 }
 
 @end
