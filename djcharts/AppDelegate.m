@@ -58,6 +58,10 @@
     timer = nil; // lol
 }
 
+- (void)openDJCharts:(id)sender {
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://djcharts.io/"]];
+}
+
 - (void)updateLocalData {
     NSTask *task;
     NSArray *arguments = [NSArray arrayWithObject: @"hi atmos"];
@@ -86,10 +90,6 @@
   NSLog(@"Periodic Pulse.");
 
   [self updateLocalData];
-}
-
-- (void)openDJCharts:(id)sender {
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://djcharts.io/"]];
 }
 
 - (void)refreshDJCharts:(id)sender {
