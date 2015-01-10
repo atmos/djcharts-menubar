@@ -7,10 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <Squirrel/Squirrel.h>
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
 @property (strong, nonatomic) NSStatusItem *statusItem;
+
+@property (strong, nonatomic) SQRLUpdater *updater;
 
 @end
 

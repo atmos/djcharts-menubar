@@ -21,7 +21,7 @@
 
     NSImage *icon = [NSImage imageNamed:@"headphones"];
     [icon setTemplate:YES];
-    
+
     [_statusItem setImage:icon];
     _statusItem.highlightMode = YES;
 
@@ -36,40 +36,29 @@
                   target: self
                   selector:@selector(onPulse:)
                   userInfo: nil repeats:YES];
-    return;
+
+    NSURLComponents *components = [[NSURLComponents alloc] init];
+
+    components.scheme = @"https";
+    components.host = @"djcharts.io";
+    components.path = @"/macapp/latest";
+
+    NSString *bundleVersion = NSBundle.mainBundle.sqrl_bundleVersion;
+    components.query = [[NSString stringWithFormat:@"version=%@", bundleVersion] stringByAddingPercentEncodingWithAllowedCharacters:NSCharacterSet.URLQueryAllowedCharacterSet];
+
+    self.updater = [[SQRLUpdater alloc] initWithUpdateRequest:[NSURLRequest requestWithURL:components.URL]];
+
+    [[self.updater relaunchToInstallUpdate] subscribeError:^(NSError *error) {
+        NSLog(@"Error preparing update: %@", error);
+    }];
+
+    // Check for updates every 4 hours.
+    [self.updater startAutomaticChecksWithInterval:60 * 60 * 4];
+
     timer = nil; // lol
 }
 
-- (void)onPulse:(NSTimer *)timer {
-  NSLog(@"Periodic Pulse.");
-  NSTask *task;
-  NSArray *arguments = [NSArray arrayWithObject: @"hi atmos"];
-
-  NSString *filePath = [[NSBundle mainBundle] pathForResource:@"traktor-charts" ofType:nil];
-
-  task = [[NSTask alloc]init];
-  [task setLaunchPath: filePath];
-  [task setArguments: arguments];
-  [task launch];
-  [task waitUntilExit];
-
-  int exitStatus = [task terminationStatus];
-  if(exitStatus == 0) {
-    NSLog(@"Exited successful. :+1:.");
-  } else if(exitStatus == 2) {
-    NSLog(@"Probably failed to post to djcharts.io");
-  } else if(exitStatus == 3) {
-      NSLog(@"No new traktor archive files found.");
-  } else {
-    NSLog(@"Exited with %d", [task terminationStatus]);
-  }
-}
-
-- (void)openDJCharts:(id)sender {
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://djcharts.io/"]];
-}
-
-- (void)refreshDJCharts:(id)sender {
+- (void)updateLocalData {
     NSTask *task;
     NSArray *arguments = [NSArray arrayWithObject: @"hi atmos"];
 
@@ -85,12 +74,26 @@
     if(exitStatus == 0) {
         NSLog(@"Exited successful. :+1:.");
     } else if(exitStatus == 2) {
-      NSLog(@"Probably failed to post to djcharts.io");
+        NSLog(@"Probably failed to post to djcharts.io");
     } else if(exitStatus == 3) {
         NSLog(@"No new traktor archive files found.");
     } else {
-      NSLog(@"Exited with %d", [task terminationStatus]);
+        NSLog(@"Exited with %d", [task terminationStatus]);
     }
+}
+
+- (void)onPulse:(NSTimer *)timer {
+  NSLog(@"Periodic Pulse.");
+
+  [self updateLocalData];
+}
+
+- (void)openDJCharts:(id)sender {
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://djcharts.io/"]];
+}
+
+- (void)refreshDJCharts:(id)sender {
+    [self updateLocalData];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
@@ -113,5 +116,6 @@
       NSLog(@"%@", writeError.localizedFailureReason);
     }
 }
+
 
 @end
