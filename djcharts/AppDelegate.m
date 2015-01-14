@@ -47,19 +47,21 @@
     components.path = @"/api/macapp";
 
     NSString *bundleVersion = NSBundle.mainBundle.sqrl_bundleVersion;
+    NSLog(@"DJ Charts:%@-%@", [NSBundle.mainBundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"], bundleVersion);
+
     components.query = [[NSString stringWithFormat:@"version=%@", bundleVersion] stringByAddingPercentEncodingWithAllowedCharacters:NSCharacterSet.URLQueryAllowedCharacterSet];
 
     self.updater = [[SQRLUpdater alloc] initWithUpdateRequest:[NSURLRequest requestWithURL:components.URL]];
 
     [self.updater.updates subscribeNext:^(SQRLDownloadedUpdate *downloadedUpdate) {
         NSLog(@"An update is ready to install: %@", downloadedUpdate);
-    }];
-
-    [[self.updater relaunchToInstallUpdate] subscribeError:^(NSError *error) {
-        NSLog(@"Error preparing update: %@", error);
+        [[self.updater relaunchToInstallUpdate] subscribeError:^(NSError *error) {
+            NSLog(@"Error preparing update: %@", error);
+        }];
     }];
 
     // Check for updates every 4 hours.
+    [self.updater.checkForUpdatesCommand execute: nil];
     [self.updater startAutomaticChecksWithInterval:30];
 
     [self updateLocalData];
