@@ -26,10 +26,13 @@
     _statusItem.highlightMode = YES;
 
     NSMenu *menu = [[NSMenu alloc] init];
-    [menu addItemWithTitle:@"Open DJ Charts" action:@selector(openDJCharts:) keyEquivalent:@""];
-    [menu addItemWithTitle:@"Update" action:@selector(refreshDJCharts:) keyEquivalent:@""];
+    [menu addItemWithTitle:@"Open djcharts.io" action:@selector(openDJCharts:) keyEquivalent:@""];
+
+    self.menuItemConfiguration = [menu addItemWithTitle:@"Setup" action:@selector(openDJChartsConfiguration:) keyEquivalent:@""];
+    self.menuItemUpdate = [menu addItemWithTitle:@"Sync Now" action:@selector(refreshDJCharts:) keyEquivalent:@""];
     [menu addItem:[NSMenuItem separatorItem]]; // A thin grey line
     [menu addItemWithTitle:@"Quit" action:@selector(terminate:) keyEquivalent:@""];
+
     _statusItem.menu = menu;
 
     NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval: 60.0
@@ -59,11 +62,16 @@
     // Check for updates every 4 hours.
     [self.updater startAutomaticChecksWithInterval:30];
 
+    [self updateLocalData];
     timer = nil; // lol
 }
 
 - (void)openDJCharts:(id)sender {
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://djcharts.io/"]];
+}
+
+- (void)openDJChartsConfiguration:(id)sender {
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://djcharts.io/settings/configure"]];
 }
 
 - (void)updateLocalData {
@@ -80,11 +88,20 @@
 
     int exitStatus = [task terminationStatus];
     if(exitStatus == 0) {
+        self.menuItemUpdate.hidden = NO;
+        self.menuItemConfiguration.hidden = YES;
+
         NSLog(@"Exited successful. :+1:.");
-    } else if(exitStatus == 2) {
-        NSLog(@"Probably failed to post to djcharts.io");
-    } else if(exitStatus == 3) {
+    } else if(exitStatus == 1) {
+        self.menuItemUpdate.hidden = NO;
+        self.menuItemConfiguration.hidden = YES;
+
         NSLog(@"No new traktor archive files found.");
+    } else if(exitStatus == 2) {
+        self.menuItemUpdate.hidden = YES;
+        self.menuItemConfiguration.hidden = NO;
+
+        NSLog(@"Probably failed to post to djcharts.io");
     } else {
         NSLog(@"Exited with %d", [task terminationStatus]);
     }
@@ -119,6 +136,7 @@
     if(writeError.localizedFailureReason != NULL) {
       NSLog(@"%@", writeError.localizedFailureReason);
     }
+    [self updateLocalData];
 }
 
 

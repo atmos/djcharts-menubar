@@ -15,5 +15,8 @@
 
 @property (strong, nonatomic) SQRLUpdater *updater;
 
+@property (strong, nonatomic) NSMenuItem *menuItemUpdate;
+@property (strong, nonatomic) NSMenuItem *menuItemConfiguration;
+
 @end
 
