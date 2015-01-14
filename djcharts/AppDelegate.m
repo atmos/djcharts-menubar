@@ -47,7 +47,7 @@
     components.path = @"/api/macapp";
 
     NSString *bundleVersion = NSBundle.mainBundle.sqrl_bundleVersion;
-    NSLog(@"DJ Charts:%@-%@", [NSBundle.mainBundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"], bundleVersion);
+    NSLog(@"DJ Charts:%@.%@", [NSBundle.mainBundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"], bundleVersion);
 
     components.query = [[NSString stringWithFormat:@"version=%@", bundleVersion] stringByAddingPercentEncodingWithAllowedCharacters:NSCharacterSet.URLQueryAllowedCharacterSet];
 
@@ -60,9 +60,10 @@
         }];
     }];
 
-    // Check for updates every 4 hours.
+    // Check for updates now.
     [self.updater.checkForUpdatesCommand execute: nil];
-    [self.updater startAutomaticChecksWithInterval:30];
+    // Check for updates every 4 hours.
+    [self.updater startAutomaticChecksWithInterval:60 * 60 * 4];
 
     [self updateLocalData];
     timer = nil; // lol
