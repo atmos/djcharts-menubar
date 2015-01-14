@@ -53,6 +53,7 @@
 
     [self.updater.updates subscribeNext:^(SQRLDownloadedUpdate *downloadedUpdate) {
         NSLog(@"An update is ready to install: %@", downloadedUpdate);
+        [[NSApplication sharedApplication] terminate:nil];
     }];
 
     [[self.updater relaunchToInstallUpdate] subscribeError:^(NSError *error) {
