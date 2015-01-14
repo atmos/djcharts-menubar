@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		1FA1A99C1A3827B100FB2988 /* headphones.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FA1A99B1A3827B100FB2988 /* headphones.png */; };
 		1FA1A9A21A38293400FB2988 /* headphones@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FA1A9A11A38293400FB2988 /* headphones@2x.png */; };
+		7434A7091A622C7F000143AC /* ReactiveCocoa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 74FAD80F1A60BBBD00D9B3B1 /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7434A70B1A622C85000143AC /* Mantle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 74FAD8001A60BBB300D9B3B1 /* Mantle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7434A70D1A622C8B000143AC /* Squirrel.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 74FAD7EF1A60BBA200D9B3B1 /* Squirrel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7484A6E61A412B7300A863CD /* headphones@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7484A6E51A412B7300A863CD /* headphones@2x.png */; };
 		7484A6E81A412B7E00A863CD /* headphones.png in Resources */ = {isa = PBXBuildFile; fileRef = 7484A6E71A412B7E00A863CD /* headphones.png */; };
 		74C9ADCC1A37F37E00C34637 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 74C9ADCB1A37F37E00C34637 /* AppDelegate.m */; };
@@ -29,6 +32,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = 74C9ADC41A37F37E00C34637;
 			remoteInfo = djcharts;
+		};
+		74CAE22F1A60D39200BF0282 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 74FAD8071A60BBBD00D9B3B1 /* ReactiveCocoa.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D04725E919E49ED7006002AA;
+			remoteInfo = "ReactiveCocoa-Mac";
+		};
+		74CAE23E1A60D39700BF0282 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 74FAD7F81A60BBB300D9B3B1 /* Mantle.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D042FC3B15F72B23004E8054;
+			remoteInfo = "Mantle-Mac";
+		};
+		74CAE2401A60D39A00BF0282 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 74FAD7E61A60BBA200D9B3B1 /* Squirrel.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D0C22BD6179CC00E00158214;
+			remoteInfo = Squirrel;
 		};
 		74FAD7EE1A60BBA200D9B3B1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -122,6 +146,21 @@
 			remoteInfo = "ReactiveCocoa-iOSTests";
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7434A6FE1A622C2B000143AC /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7434A70D1A622C8B000143AC /* Squirrel.framework in CopyFiles */,
+				7434A70B1A622C85000143AC /* Mantle.framework in CopyFiles */,
+				7434A7091A622C7F000143AC /* ReactiveCocoa.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1FA1A99B1A3827B100FB2988 /* headphones.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = headphones.png; sourceTree = "<group>"; };
@@ -273,10 +312,14 @@
 				74C9ADC11A37F37E00C34637 /* Sources */,
 				74C9ADC21A37F37E00C34637 /* Frameworks */,
 				74C9ADC31A37F37E00C34637 /* Resources */,
+				7434A6FE1A622C2B000143AC /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				74CAE2411A60D39A00BF0282 /* PBXTargetDependency */,
+				74CAE23F1A60D39700BF0282 /* PBXTargetDependency */,
+				74CAE2301A60D39200BF0282 /* PBXTargetDependency */,
 			);
 			name = djcharts;
 			productName = djcharts;
@@ -497,6 +540,21 @@
 			target = 74C9ADC41A37F37E00C34637 /* djcharts */;
 			targetProxy = 74C9ADD91A37F37E00C34637 /* PBXContainerItemProxy */;
 		};
+		74CAE2301A60D39200BF0282 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "ReactiveCocoa-Mac";
+			targetProxy = 74CAE22F1A60D39200BF0282 /* PBXContainerItemProxy */;
+		};
+		74CAE23F1A60D39700BF0282 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Mantle-Mac";
+			targetProxy = 74CAE23E1A60D39700BF0282 /* PBXContainerItemProxy */;
+		};
+		74CAE2411A60D39A00BF0282 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Squirrel;
+			targetProxy = 74CAE2401A60D39A00BF0282 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -606,8 +664,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Mac Developer: Corey Donohoe (58E5YPM743)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer: Corey Donohoe (58E5YPM743)";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = djcharts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
